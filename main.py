@@ -1,6 +1,7 @@
 from typing import Optional, Tuple, Union
 import customtkinter as ctk
 from PIL import Image
+from src.FMain import FrameMain
 
 
 class FrameInicial(ctk.CTkFrame):
@@ -25,16 +26,8 @@ class FrameInicial(ctk.CTkFrame):
         
         #Label Texto
         self.texto = ctk.CTkLabel(self, text="The Cultural Trail", bg_color="#fff0af", fg_color="transparent", text_color="#2C4436", font=("Georgia", 32, "bold"))
-        self.texto.place(x=630, y=450)
-        
-class FrameMain(ctk.CTkFrame):
-    def __init__(self, master, background_color, foreground_color):
-        super().__init__(master)
-        self.configure(bg_color=background_color)
-        self.configure(fg_color=foreground_color)
-    
-        #Definición del frame
-        
+        self.texto.place(x=630, y=450)        
+
 
 class App(ctk.CTk):
     def __init__(self):
@@ -58,6 +51,8 @@ class App(ctk.CTk):
         
         if frame_name == "inicial":
             self.frame_inicial.grid(row=0, column=0, sticky="nsew")
+        elif frame_name == "main":
+            self.frame_main.grid(row=0, column=0, sticky="nsew")
         else: 
             self.frame_inicial.grid_forget()
         
