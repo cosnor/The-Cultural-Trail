@@ -1,9 +1,8 @@
-from typing import Optional, Tuple, Union
 import customtkinter as ctk
 from PIL import Image
 from src.FMain import FrameMain
 
-
+# Clase del frame inicial
 class FrameInicial(ctk.CTkFrame):
     def __init__(self, master, background_color, foreground_color):
         super().__init__(master)
@@ -28,25 +27,28 @@ class FrameInicial(ctk.CTkFrame):
         self.texto = ctk.CTkLabel(self, text="The Cultural Trail", bg_color="#fff0af", fg_color="transparent", text_color="#2C4436", font=("Georgia", 32, "bold"))
         self.texto.place(x=630, y=450)        
 
-
+# Clase principal de la aplicación
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
+        #Posicionamiento centrado en la pantalla
         self.x = self.winfo_screenwidth() // 2 - 1540 // 2
         self.y = self.winfo_screenheight() // 2 - 800 // 2
         self.posicionamiento = f"1540x800+{self.x - 10}+{self.y -35}"
-        
         self.geometry(self.posicionamiento)
-        self.resizable(False, False)        
+        self.resizable(False, False)
+        
+        #Configuración de la ventana        
         self.title("The Cultural Trail")
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
         
+        #Frames Inicial y Main
         self.frame_inicial = FrameInicial(self, "#fff0af", "transparent")
         self.frame_inicial.grid(row=0, column=0, sticky="nsew")
-        
         self.frame_main = FrameMain(self, "#fff0af", "transparent")
     
+    #Función para cambiar de frame
     def select_frame_by_name(self, frame_name):
         
         if frame_name == "inicial":
