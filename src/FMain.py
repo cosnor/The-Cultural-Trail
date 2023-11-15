@@ -106,13 +106,16 @@ class FrameMain(ctk.CTkFrame):
         if frame_name == "tablero":
             self.back2.grid_forget()
             self.back3.grid_forget()
+            self.back4.grid_forget()
             self.mainPartBack.grid(row=0, column=1, sticky="nsew")
         elif frame_name == "agregar":
             self.mainPartBack.grid_forget()
             self.back3.grid_forget()
+            self.back4.grid_forget()
             self.back2.grid(row=0, column=1, sticky="nsew")
         elif frame_name == "editar":
             self.back2.grid_forget()
+            self.back4.grid_forget()
             self.mainPartBack.grid_forget()
             self.back3.grid(row=0, column=1, sticky="nsew")
             
