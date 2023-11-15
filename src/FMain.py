@@ -51,6 +51,14 @@ class FrameMain(ctk.CTkFrame):
         self.frame_edit = SuperficialEFrame(self.back3, self.mainPart)
         self.frame_edit.grid(row=0, column=0)
         
+        #back|4
+        self.back4 = ctk.CTkScrollableFrame(self, width=1260, height=800, bg_color="#431A05", fg_color="transparent" ,scrollbar_button_color="#FFE588", scrollbar_button_hover_color = "#FFE588", scrollbar_fg_color="#431A05")
+        self.back4.columnconfigure(0, weight=1)
+        self.back4.rowconfigure(0, weight=1)
+        self.info_img = ctk.CTkImage(light_image=Image.open("assets/info_pg.jpeg"),size=(1131, 1600))
+        self.info_label = ctk.CTkLabel(self.back4, image=self.info_img, text="", fg_color="transparent", bg_color="#431A05")  # display image with a CTkLabel
+        self.info_label.grid(row=0, column=0, sticky="nsew")
+        
         #Actualización de los frames
         self.mainPart.frame2 = self.frame_edit
         
@@ -107,6 +115,13 @@ class FrameMain(ctk.CTkFrame):
             self.back2.grid_forget()
             self.mainPartBack.grid_forget()
             self.back3.grid(row=0, column=1, sticky="nsew")
+            
+        elif frame_name == "info":
+            self.back2.grid_forget()
+            self.back3.grid_forget()
+            self.mainPartBack.grid_forget()
+            self.back4.grid(row=0, column=1, sticky="nsew")
+            
         else: 
             self.mainPartBack.grid(row=0, column=1, sticky="nsew")
             
